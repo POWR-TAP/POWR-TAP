@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+dbt seed --target=prod
+dbt run --target=prod
+dbt test --target=prod

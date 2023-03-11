@@ -1,0 +1,54 @@
+# config:
+#   send_anonymous_usage_stats: false
+#   use_colors: true
+  # partial_parse: <true | false>
+  # printer_width: <integer>
+  # write_json: <true | false>
+  # warn_error: <true | false>
+  # warn_error_options: <include: all | include: [<error-name>] | include: all, exclude: [<error-name>]>
+  # log_format: <text | json | default>
+  # debug: <true | false>
+  # version_check: <true | false>
+  # fail_fast: <true | false>
+  # use_experimental_parser: <true | false>
+  # static_parser: <true | false>
+
+data:
+  target: dev # this is the default target
+  outputs:
+    dev:
+      type: postgres
+      threads: 4
+      schema: "{{ env_var('DBT_SCHEMA_DEV') }}"
+
+      host: "{{ env_var('DBT_HOST') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 25060
+      dbname: "{{ env_var('DBT_DBNAME') }}"
+      threads: 4
+      keepalives_idle: 0 # default 0, indicating the system default. See below
+      connect_timeout: 10 # default 10 seconds
+      retries: 1  # default 1 retry on error/timeout when opening connections
+      search_path: production
+      # role: [optional, set the role dbt assumes when executing queries]
+      sslmode: require
+      # sslcert: "./.config/ca-certificate.crt"
+      # sslcert: "./.config/ca-certificate.crt"
+      # sslcert: "./.config/ca-certificate.crt"
+    prod:
+      type: postgres
+      threads: 4
+      schema: analytics
+
+      host: "{{ env_var('DBT_HOST') }}"
+      user: "{{ env_var('DBT_USER') }}"
+      password: "{{ env_var('DBT_PASSWORD') }}"
+      port: 25060
+      dbname: "{{ env_var('DBT_DBNAME') }}"
+      threads: 4
+      keepalives_idle: 0 # default 0, indicating the system default. See below
+      connect_timeout: 10 # default 10 seconds
+      retries: 1  # default 1 retry on error/timeout when opening connections
+      search_path: production
+      sslmode: require

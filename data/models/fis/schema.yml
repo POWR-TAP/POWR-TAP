@@ -1,0 +1,103 @@
+version: 2
+
+seeds:
+  - name: tap_participants
+    columns:
+      - name: ssn_fake
+        tests:
+          - unique
+          - not_null
+      - name: employee_id
+        tests:
+          - unique
+          - not_null
+      - name: uid
+        tests:
+          - unique
+          - not_null
+  - name: quiz_roster
+    columns:
+      - name: tag
+        tests:
+          - unique
+          - not_null
+      - name: winner_count
+        tests:
+          - accepted_values:
+              values: [1000000000, 1, 3]
+      - name: policy
+        tests:
+          - accepted_values:
+              values: ['all-passing', 'one-winner', 'three-winner']
+models:
+  - name: fis_records
+    description: "All FIS Records both Sent and Received"
+    columns:
+      - name: __basename
+        tests:
+          - not_null
+      - name: __file
+        tests:
+          - not_null
+      - name: __file_type
+        tests:
+          - accepted_values:
+              values: ['submission', 'response']
+          - not_null
+  - name: participants_map_to_roster
+    description: "Partitipants to buid"
+    columns:
+      - name: buid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: ppf_payment_error_report
+    description: "Safety checking for PPF payment error as report"
+  - name: ppf_payment_report
+    description: "Actual PPF payment report"
+  - name: quiz_attempts_best_per_user
+    description: "Best quiz attempt per user"
+  - name: quiz_attempts
+    description: "All quiz attempts"
+  - name: fis_create_card_request
+    description: "Card Creation CSV Generator"
+  - name: fis_load_card_request
+    description: "Load card CSV Generator"
+  - name: payments
+    description: "Payments"
+  - name: debit_cards
+    description: "Debit Cards"
+  - name: current_debit_cards
+    description: "Debit Cards only listing most recent per user based on file mtime"
+  - name: fis_records_errors
+    description: "Submissions to FIS that came back with failure codes"
+  - name: quizzes
+    description: "DEPRECATED Quizzes"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  - name: quizzes_with_rewards
+    description: "Quizzes with rewards"
+    columns:
+      - name: payout_batch
+        tests:
+          - not_null
+      - name: tag_name
+        tests:
+          - not_null
+          - relationships:
+              to: ref('quiz_roster')
+              field: tag
+  - name: user_tags
+    description: "User tags"
+  - name: users
+    description: "Users"
+      # - name: customer_id
+      #   tests:
+      #     - relationships:
+      #         to: ref('customers')
+      #         field: id
