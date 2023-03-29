@@ -1,14 +1,25 @@
-# POWR-TAP
+# POWR-TAP 
 
-## Architecture of Projects
+We are dedicated to empowering American youth with essential financial knowledge and skills. Our primary project, TAP, is a financial literacy education platform that leverages blockchain technology and the XRPL to create an engaging, dynamic learning experience.
 
-About: TAP is a video-based, multiple-choice, pop quiz gaming app where players receive push notifications with links to quiz videos (1-2 minute runtime) that contain pertinent financial skill building information and must answer multiple-choice questions correctly to win $5. Each player is given two (2) chances per quiz and bonus rounds allow winners to level-up their winnings.
+We believe that by providing accessible and engaging educational resources, we can help the next generation achieve financial literacy and success.
 
-TAP by POWR is a combination of social media platform Tik Tok, in that videos are used to convey messaging, and HQ, which is a multiple choice, pop quiz trivia game that rewards winners with real money. We've taken the best of both worlds and added a few twists.
+## About TAP
 
-Design: Our build is centered around customized learning modules and  badging/tagging system that tracks players' performance and informs the leaderboard. As it stands, our video-based quiz system is correlated to multiple choice questions that are tagged when correctly answered and ascribed a badget that remains on that user's profile. This data is then extracted by our Internal Reporting System that then determines the amount of cash each player is owed in a give period. Once approved by FIS, our payment partner, the funds are distributed to each user's debit card for them to use at their descretion. 
+TAP is an engaging, video-based quiz gaming app that combines the best elements of social media platforms like TikTok and trivia games like HQ. Players receive push notifications with links to short quiz videos (1-2 minutes) containing essential financial skill-building information. By answering multiple-choice questions correctly, players can win $5, with two chances per quiz and bonus rounds for leveling up winnings.
 
+Our design focuses on customized learning modules and a badging/tagging system that tracks players' performance and informs the leaderboard. In TAP, video-based quizzes are connected to multiple-choice questions. When players answer correctly, they receive badges that remain on their user profiles. This data is extracted by our Internal Reporting System, which calculates the cash rewards owed to each player during a given period. Once approved by our payment partner, FIS, the funds are distributed to users' debit cards for them to use at their discretion.
+
+By blending the engaging nature of video content with the thrill of winning real money, TAP creates an exciting and dynamic platform for teaching financial literacy to American youth.
+
+## Contributing
+
+We encourage and welcome contributions to help improve and expand our projects. 
 
 The reporting code is available in this repository under the `./data` directory
 and the sub README in that folder contains the technical architecture of that
 part of the project.
+
+
+## Contact
+For questions, feedback, or collaboration opportunities, please reach out to us at our website: https://www.powr.world/
